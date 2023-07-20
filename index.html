@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1" />
+		<title>Personal Virtual Library</title>
+
+		<!-- * Typography -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300;1,500&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- * CSS -->
+		<link rel="stylesheet" href="css/main.css" />
+
+		<!-- * REMIX ICON-->
+		<link
+			href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<div class="blur hidden"></div>
+		<header>Personal Virtual Library</header>
+
+
+		<div class="form-container hidden">
+			<form action="#" class="form">
+				<h1>New Books <i class="ri-close-line close"></i></h1>
+				<h2 class="subheading">Title:</h2>
+				<input class="title" type="text" placeholder="Title" required />
+				<h2 class="subheading">Author:</h2>
+				<input class="author" type="text" placeholder="Author" required />
+				<h2 class="subheading">Pages:</h2>
+				<input class="pages" type="number" placeholder="Pages" required />
+				<h2 class="subheading">Read?</h2>
+				<input type="checkbox" class="read">
+				<input type="submit" class="submit" value="Add Book">
+			</form>
+		</div>
+
+
+			<div class="book">
+				<!-- <div class="book--tab">
+					<h3>Title:</h3>
+					<p>Lord of the Rings</p>
+				</div>
+				<div class="book--tab">
+					<h3>Author:</h3>
+					<p>R.R Martins</p>
+				</div>
+				<div class="book--tab">
+					<h3>Pages:</h3>
+					<p>300</p>
+				</div>
+                <div class="book--tab">
+                    <h3>Read it:</h3>
+                    <p class="read" data-toggle="select">Yes 😉</p>
+                </div>
+				<div class="book--update">Update <i class="ri-edit-line edit"></i></div>
+				<div class="book--delete">
+					Delete <i class="ri-delete-bin-5-line edit"></i> -->
+				</div>
+			</div>
+		</div>
+
+		<i class="ri-add-circle-line plus"></i>
+
+		<!-- * JS -->
+		<script src="app.js"></script>
+	</body>
+</html>
