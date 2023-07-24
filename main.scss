@@ -55,20 +55,6 @@ picture {
 	display: block;
 }
 
-// @media (prefers-reduced-motion: reduce) {
-// 	html:focus-within {
-// 		scroll-behavior: auto;
-// 	}
-
-	// *,
-	// *::before,
-	// *::after {
-	// 	animation-duration: 0.01ms !important;
-	// 	animation-iteration-count: 1 !important;
-	// 	transition-duration: 0.01ms !important;
-	// 	scroll-behavior: auto !important;
-	// }
-// }
 
 header {
 	padding: 0.5rem;
@@ -89,10 +75,11 @@ header {
 		
 		
 		&--tab {
-			width: 50rem;
+			min-width: 20rem;
 			padding: 1rem;
 			border-radius: 1rem;
 			display: flex;
+			flex-wrap: wrap;
 			justify-content: flex-start;
 			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 			flex-direction: column;
