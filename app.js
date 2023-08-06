@@ -30,14 +30,16 @@ document.addEventListener('keydown', function (e) {
 let myLibrary = [];
 
 // * constructor function
-    function Book(title, author, pages, read) {
+
+class Book {
+    constructor(title, author, pages, read) {
         this.title = title;
         this.author = author;
         this.pages = pages;
         this.read = read;
     }
 
-    function renderLibrary(){
+    static renderLibrary() {
         book.innerHTML = '';
         myLibrary.forEach((newBook, i) => {
             let bookTab = document.createElement('div');
@@ -59,10 +61,10 @@ let myLibrary = [];
                 <h3>Read it:</h3>
                 <p class="read">${newBook.read ? "read 🙂" : "No 🙅‍♂️"}</p>
             </div>
-            <button  class="book--delete" onclick="removeBooks(${i})">
+            <button  class="book--delete" onclick="Book.removeBooks(${i})">
                  Delete <i class="ri-delete-bin-5-line edit"></i>
             </button>
-             <div class="book--update" onclick="toggleRead(${i})">
+             <div class="book--update" onclick="Book.toggleRead(${i})">
                  Update <i class="ri-edit-line edit" ></i>
              </div>
             `
@@ -72,22 +74,19 @@ let myLibrary = [];
         })
     }
 
-    function removeBooks(index) {
+     static removeBooks(index) {
         myLibrary.splice(index, 1);
-        renderLibrary()
+        this.renderLibrary();
     }
 
-    Book.prototype.toggleRead = function() {
-        this.read =!this.read;
+    static toggleRead(index) {
+        myLibrary[index].toggleRead2();
+        this.renderLibrary();
     }
 
-    function toggleRead(index) {
-        myLibrary[index].toggleRead();
-        renderLibrary()
-    }
+ 
 
-    // * get data from user
-    function addBookToLibrary() {
+    static addBookToLibrary() {
         let title = inputTitle.value;
         let author = inputAuthor.value
         let pages = inputPages.value;
@@ -97,19 +96,27 @@ let myLibrary = [];
         console.log(myLibrary);
 
         // * render Library.
-        renderLibrary();
-    } 
-
-    const clearForm = () => {
-        inputAuthor.value = inputTitle.value = inputPages.value = '';
+        this.renderLibrary();
     }
 
+    static clearForm() {
+        inputAuthor.value = inputPages.value = inputTitle.value = '';
+    }
+
+
+}
+
+Book.prototype.toggleRead2 = function () {
+    this.read = !this.read;
+}
 
 
 form.addEventListener('submit', function(e) {
     e.preventDefault();
-    addBookToLibrary();
-    clearForm();
+    Book.addBookToLibrary();
+    Book.clearForm();
 });
+
+
 
 
